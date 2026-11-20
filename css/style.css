@@ -1,0 +1,260 @@
+:root {
+  --nero: #1e1a15;
+  --lime: #e0f35c;
+  --grigio: #afaa9d;
+  --larghezza: 48.6vw;
+  --altezza: calc(var(--larghezza) * 11 / 7);
+}
+
+/* Le basi */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--lime);
+  background: var(--nero);
+}
+
+h1, h2, h3, p, ul, ol, dl, dd, figure {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: none;
+  height: auto;
+}
+
+a {
+  color: var(--lime);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--lime);
+  outline-offset: 3px;
+}
+
+/* Il contenitore */
+.contenitore {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* La testata e il piede: header 100px e footer 120px a 1920px di larghezza, poi in proporzione */
+header {
+  height: 5.21vw;
+}
+
+footer {
+  height: 6.25vw;
+}
+
+header .contenitore,
+footer .contenitore {
+  display: flex;
+  justify-content: space-between;
+  max-width: none;
+  height: 100%;
+  padding-inline: 1.25vw;
+}
+
+header .contenitore {
+  align-items: center;
+  font-size: 1.5vw;
+  line-height: 1.3;
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.edizione {
+  text-transform: uppercase;
+  color: var(--grigio);
+}
+
+/* Le immagini numerate: ognuna occupa esattamente la sua sezione, in proporzione alla pagina */
+.pixel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--larghezza);
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 0;
+}
+
+/* L’apertura: in alto il ritratto con il logo, in basso il titolo. Tutto in proporzione alla larghezza */
+.apertura {
+  position: relative;
+  height: var(--altezza);
+  overflow: hidden;
+  background: var(--nero);
+  container-type: inline-size;
+}
+
+.apertura figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 62%;
+  overflow: hidden;
+}
+
+.apertura figure img {
+  width: 100%;
+  height: auto;
+}
+
+.invasore {
+  position: absolute;
+  top: 6.15cqw;
+  left: 31.29cqw;
+  width: 64cqw;
+}
+
+.titolo {
+  position: absolute;
+  right: 4%;
+  bottom: 8%;
+  left: 2%;
+}
+
+h1 {
+  font-family: "Jersey 25", monospace;
+  font-size: 19.5vw;
+  font-weight: 400;
+  line-height: 0.8;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.domanda {
+  display: block;
+  margin-top: 0.3em;
+  font-family: "Jersey 10", monospace;
+  font-size: 0.32em;
+  line-height: 1;
+  text-align: right;
+}
+
+/* Le tesi: il testo sta nella colonna a destra dell’immagine */
+.tesi {
+  position: relative;
+  height: var(--altezza);
+}
+
+.scura {
+  background: var(--nero);
+  color: var(--lime);
+}
+
+.lime {
+  background: var(--lime);
+  color: var(--nero);
+}
+
+.grigia {
+  background: var(--grigio);
+  color: var(--nero);
+}
+
+.testi {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding-left: calc(var(--larghezza) + 3vw);
+  padding-right: 4vw;
+}
+
+h2 {
+  font-family: "Jersey 10", monospace;
+  font-size: 4.8vw;
+  font-weight: 400;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.tesi p {
+  margin-top: 3vw;
+  font-family: "Jersey 10", monospace;
+  font-size: 2.6vw;
+  line-height: 1.25;
+}
+
+.scura p {
+  color: var(--grigio);
+}
+
+/* Il piede: Flex */
+footer {
+  background: var(--lime);
+}
+
+footer .contenitore {
+  align-items: flex-end;
+  gap: 0.85vw;
+  padding-block: 1vw;
+  font-size: 1.25vw;
+  line-height: 1.35;
+  color: var(--nero);
+}
+
+/* Telefono: fino a 40em, senza immagini numerate nelle sezioni e con misure di lettura */
+@media (max-width: 40em) {
+  .tesi .pixel {
+    display: none;
+  }
+
+  header {
+    height: 3.5rem;
+  }
+
+  footer {
+    height: auto;
+  }
+
+  header .contenitore,
+  footer .contenitore {
+    padding-inline: 1.25rem;
+  }
+
+  header .contenitore {
+    font-size: 0.875rem;
+  }
+
+  footer .contenitore {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding-block: 1.25rem;
+    font-size: 0.8125rem;
+  }
+
+  .tesi {
+    height: auto;
+  }
+
+  .testi {
+    height: auto;
+    padding: 3.5rem 1.5rem;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+  }
+
+  .tesi p {
+    margin-top: 1.25rem;
+    font-size: 1.375rem;
+  }
+}
